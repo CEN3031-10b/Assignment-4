@@ -26,9 +26,13 @@ module.exports.init = function() {
   });
 
   /* serve static files */
-  
+  app.use(express.static(__dirname + '/../../client'));
+  console.log(__dirname);
 
   /* use the listings router for requests to the api */
+  
+  app.use('/api/listings', listingsRouter);
+ 
 
 
   /* go to homepage for all routes not specified */ 
