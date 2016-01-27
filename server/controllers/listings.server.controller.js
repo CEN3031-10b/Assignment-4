@@ -86,6 +86,12 @@ exports.list = function(req, res) {
       console.log(err);
       res.status(400).send(err);
     }
+	
+	// sort the listings array by code
+	listings.sort(function(l1, l2) {
+		return l1.code < l2.code ? -1 : l1.code > l2.code;
+	});
+	
 	res.json(listings);
   });
 };
